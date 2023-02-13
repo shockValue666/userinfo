@@ -13,6 +13,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
+    console.log("home")
     res.send('Welcome to CORS server 😁')
 })
 
@@ -30,6 +31,7 @@ var options = {
 };
 
 app.get('/getUserInfo/:username', async (req, res) => {
+    console.log("username")
      const ig = new IgApiClient();
     ig.state.generateDevice(process.env.IG_USERNAME);
     await ig.account.login(process.env.IG_USERNAME, process.env.IG_PASSWORD);
